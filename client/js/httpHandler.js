@@ -12,7 +12,15 @@
     })
     setTimeout(getCommand, 5000)
   }
-  getCommand()
+  getCommand();
+
+  const getImage = function () {
+    $.get(serverUrl + "/background.jpg")
+      .done((res) => {
+        $('.background').css({ 'background- image': res })
+      })
+  }
+  getImage();
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
