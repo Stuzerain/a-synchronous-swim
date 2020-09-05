@@ -1,10 +1,18 @@
-(function() {
+(function () {
 
   const serverUrl = 'http://127.0.0.1:3000';
 
   //
   // TODO: build the swim command fetcher here
   //
+  const getCommand = function () {
+    $.get(serverUrl, (res) => {
+      console.log('res', res);
+      SwimTeam.move(res);
+    })
+    setTimeout(getCommand, 5000)
+  }
+  getCommand()
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
@@ -28,7 +36,7 @@
     });
   };
 
-  $('form').on('submit', function(e) {
+  $('form').on('submit', function (e) {
     e.preventDefault();
 
     var form = $('form .file')[0];

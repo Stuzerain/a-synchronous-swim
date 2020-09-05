@@ -5,11 +5,11 @@
 // There are better options if using expressjs.
 /////////////////////////////////////////////////
 
-var request = function(url, method, postdata) {
+var request = function (url, method, postdata) {
   this.url = url;
   this.method = method;
   this._postData = postdata;
-  this.setEncoding = function() { /* noop */ };
+  this.setEncoding = function () { /* noop */ };
 
   this.addListener = this.on = (type, callback) => {
     if (type === 'data') {
@@ -26,13 +26,13 @@ var request = function(url, method, postdata) {
   };
 };
 
-var response = function() {
+var response = function () {
   this._ended = false;
   this._responseCode = null;
   this._headers = null;
   this._data = Buffer.alloc(0);
 
-  this.on = this.once = this.emit = ()=>{};
+  this.on = this.once = this.emit = () => { };
 
   this.writeHead = (responseCode, headers) => {
     this._responseCode = responseCode;
@@ -48,6 +48,7 @@ var response = function() {
   this.end = (data) => {
     this._ended = true;
     if (data) {
+      console.log(this._data)
       this._data = Buffer.concat([this._data, Buffer.from(data)]);
     }
   };
