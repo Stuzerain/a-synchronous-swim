@@ -14,13 +14,13 @@
   }
   getCommand();
 
-  const getImage = function () {
-    $.get(serverUrl + "/background.jpg")
-      .done((res) => {
-        $('.background').css({ 'background- image': res })
-      })
-  }
-  getImage();
+  // const getImage = function () {
+  //   $.get(serverUrl + "/background.jpg")
+  //     .done((res) => {
+  //       $('.background').css({ 'background- image': res })
+  //     })
+  // }
+  // getImage();
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
@@ -33,7 +33,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: `${serverUrl}/background.jpg`,
       cache: false,
       contentType: false,
       processData: false,
